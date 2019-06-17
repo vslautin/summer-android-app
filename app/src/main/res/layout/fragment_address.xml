@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="@dimen/horizontal_padding"
+    android:paddingLeft="@dimen/horizontal_padding"
+    android:paddingTop="@dimen/vertical_padding">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_airport_hotel_name"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:inputType="textCapSentences|textVisiblePassword"
+            android:background="@drawable/frame_address"
+            android:paddingRight="5dp"
+            android:hint="@string/search_hint"
+            android:textColorHint="#B0B0B0"
+            android:textStyle="bold"/>
+
+        <com.tuyenmonkey.mkloader.MKLoader
+            android:id="@+id/progressBar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical|end"
+            android:visibility="gone"
+            app:mk_color="@color/colorPrimary"
+            android:layout_marginRight="10dp"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/closestLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/closest_airports"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/addressRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:clipToPadding="false"
+        android:background="#f7f7f7"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/showMapButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/on_map_button_bg"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_on_map"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/arrow"
+            android:drawablePadding="5dp"
+            android:textAllCaps="true"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/forcedAirportDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/antalya_explanation"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+</LinearLayout>

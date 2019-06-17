@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nextButton"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/horizontal_padding"
+            android:paddingLeft="@dimen/horizontal_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/registration"
+                android:layout_marginBottom="20dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/firstText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100sp"
+                    android:maxWidth="100sp"
+                    android:textSize="12sp"
+                    android:text="@string/name_personal"/>
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/firstFieldText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:inputType="textCapSentences|textVisiblePassword"
+                    android:background="@drawable/frame_profile"
+                    android:textColor="@color/edit_text_color"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lastNameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lastNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100sp"
+                    android:maxWidth="100sp"
+                    android:textSize="12sp"
+                    android:text="@string/last_name_personal"/>
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/lastNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:inputType="textCapSentences|textVisiblePassword"
+                    android:background="@drawable/frame_profile"
+                    android:textColor="@color/edit_text_color"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/secondText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="100sp"
+                    android:maxWidth="100sp"
+                    android:textSize="12sp"
+                    android:text="@string/email"
+                    android:layout_alignTop="@+id/secondFieldText"
+                    android:layout_alignBottom="@+id/secondFieldText"
+                    android:gravity="center_vertical"/>
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/secondFieldText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:layout_toEndOf="@+id/secondText"
+                    android:background="@drawable/frame_profile"
+                    android:textColor="@color/edit_text_color"/>
+
+                <TextView
+                    android:id="@+id/waitCodeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@string/wait_code"
+                    android:layout_below="@id/secondFieldText"
+                    android:layout_alignLeft="@id/secondFieldText"
+                    android:layout_alignRight="@id/secondFieldText"
+                    android:gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+            <CheckBox
+                android:id="@+id/spamCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spam_confirm"
+                android:button="@drawable/credit_card_radio_button"
+                android:paddingLeft="8dp"
+                android:textColor="@android:color/tertiary_text_light"
+                android:textSize="12sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/termsOfUse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registration_terms_of_use"
+                android:paddingTop="20dp"
+                android:paddingLeft="8dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/privacyLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <CheckBox
+                    android:id="@+id/privacyCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/credit_card_radio_button"/>
+
+                <TextView
+                    android:id="@+id/privacyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/i_accept_user_agreement"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_height"
+        android:background="@drawable/shadow"
+        android:layout_above="@+id/nextButton"/>
+
+    <include
+        android:id="@+id/nextButton"
+        layout="@layout/view_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

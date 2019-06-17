@@ -1,3 +1,187 @@
 <resources>
-    <string name="app_name">TransferApplication</string>
+    <string name="app_name" translatable="false">Transfer</string>
+    <string name="google_maps_key" translatable="false">AIzaSyCugehoQ7ZAM92aWVSRGWoHEXeCby2gQN4</string>
+    <string name="google_places_key" translatable="false">AIzaSyBViuBeV6wt6yJtAggOURYXvDCC2wIIbZM</string>
+
+    <string name="splash_title">More than 450 airports all over the world!</string>
+    <string name="splash_subtitle">The rest begins from the boarding ramp!</string>
+    <string name="read_terms_and_conditions">Read the <![CDATA[<font color="#7DC242">terms and conditions</font>]]> of use</string>
+    <string name="accept_user_agreement">Accept the user agreement</string>
+    <string name="user_agreement">User agreement</string>
+    <string name="registration_terms_of_use"><![CDATA[<font color="#7DC242">Terms and conditions</font>]]> of use</string>
+    <string name="i_accept_user_agreement">I accept the <![CDATA[<font color="#7DC242">user agreement</font>]]></string>
+    <string name="order_transfer">Order transfer</string>
+    <string name="order_transfer_">Order Transfer</string>
+    <string name="params">Parameters</string>
+    <string name="payment_methods">Payment methods</string>
+    <string name="feedback">Feedback</string>
+    <string name="union_contact_center">United call-center</string>
+    <string name="default_contact_phone">8 800 123 00 11</string>
+    <string name="need_authorization">For transfer ordering you should</string>
+    <string name="logout">Logout</string>
+    <string name="enter_airport_hotel_name">Enter the address or hotel name</string>
+    <string name="enter_airport_name">Enter the airport</string>
+    <string name="order">order</string>
+    <string name="trips">trips</string>
+    <string name="favorites">favorites</string>
+
+    <string name="choose">Choose</string>
+    <string name="order_confirm">Check and confirm your order</string>
+    <string name="order_accepted">Order was accepted</string>
+    <string name="edit">Edit</string>
+
+    <string name="arrival_airport">Destination airport</string>
+    <string name="origin_address">Origin address</string>
+    <string name="pickup_date_time">Pickup date and time</string>
+    <string name="destination_address">Destination address</string>
+    <string name="destination_airport">Destination airport</string>
+    <string name="payment_method">Payment method</string>
+    <string name="service_class">Service class</string>
+    <string name="transfer_cost">Transfer cost</string>
+
+    <string name="thanks_for_choose_transfer">Confirm order</string>
+    <string name="hotel_explanation">At the specified address\nyou will be met by the driver\nwith your name on the plate</string>
+    <string name="confirm_driver_explanation">In the destination airport\nyou will be met by the driver\nwith your name on the plate</string>
+    <string name="name_personal">First name</string>
+    <string name="last_name_personal">Last name (driver can see your last name)</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="choose_payment_method">Choose payment method</string>
+    <string name="add_new_credit_card">Add new card</string>
+    <string name="safe_payment_info">Payment security info</string>
+    <string name="registration">Registration</string>
+    <string name="spam_confirm">- receive news about special offers</string>
+    <string name="wait_code">wait to receive code</string>
+    <string name="code">Code</string>
+    <string name="set_flight_number">set flight number</string>
+    <string name="set_flight_number_">Flight number</string>
+    <string name="add_address">add one more address</string>
+    <string name="add_comment">add comment</string>
+    <string name="add_comment_">Add comment</string>
+    <string name="add_comment_to_order">Add comment fot order</string>
+    <string name="choose_transfer_class">Choose service class</string>
+    <string name="next_trip">Your</string>
+    <string name="history_list">Yours</string>
+    <string name="rub" translatable="false">\u20BD</string>
+    <string name="trip_details">Order details</string>
+    <string name="your_order_number">Order number (set while meeting)</string>
+    <string name="favorite_trips">My favorite trips</string>
+    <string name="repeat">Repeat</string>
+    <string name="delete">Delete</string>
+    <string name="cancel_vb">Cancel Order</string>
+    <string name="add_card_to_pay">Add payment card</string>
+    <string name="add_card">Add card</string>
+    <string name="enter_card_number">Enter the card number</string>
+    <string name="enter_card_holder">Enter the card holder name</string>
+
+    <string name="card_hint" translatable="false">XXXX XXXX XXXX XXXX</string>
+    <string name="card_holder_hint" translatable="false">Ivan Ivanov</string>
+    <string name="month_hint" translatable="false">mm</string>
+    <string name="year_hint" translatable="false">yy</string>
+    <string name="cvc_hint" translatable="false">xxx</string>
+    <string name="card_mask" translatable="false">####    ####    ####    ####    ###</string>
+    <string name="date_mask" translatable="false">##</string>
+    <string name="cvc_mask" translatable="false">###</string>
+    <string name="credit_card_valid_to">Card expires at</string>
+    <string name="cvc">CVC code at the back side of the card</string>
+    <string name="rate_transfer">Rate your last transfer</string>
+    <string name="thanks_for_feedback">Thank you for your feedback</string>
+    <string name="send">Send</string>
+    <string name="child_seat">Child\'s seat</string>
+    <string name="enter_flight_details">Enter flight details</string>
+    <string name="choose_air_company">Choose airline</string>
+    <string name="flight_time">Arrival \ntime</string>
+    <string name="flight_time_destination">Departure \ntime</string>
+    <string name="phone_mask" translatable="false">+# ### #######</string>
+    <string name="code_mask" translatable="false">####</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="write_to_us">Write to us, we respond quickly</string>
+    <string name="write_hint">for example, \ncan\'t find a driver</string>
+    <string name="chat_you"><![CDATA[<font color="#7DC242"><b>YOU:</b></font>]]></string>
+    <string name="chat_operator"><![CDATA[<font color="#BEBEBE"><b>OPERATOR:</b></font>]]></string>
+    <string name="to_favorites">To favorites</string>
+    <string name="remove_from_favorites">Delete from \nfavorites</string>
+    <string name="transfer_time">Transfer pickup time</string>
+    <string name="time_explanation">We recommend to choose the time after yor real arrival time. Build at least 30 minutes into passing all formalities at the arrival airport. If you don\'t know the airport we suggest to choose the pickup time after an hour of arrival</string>
+    <string name="free_time">Free waiting time</string>
+    <string name="no_limits">Without limits</string>
+    <string name="be_cool_explanation">Transfer driver would wait for you as long as needed. Don\'t worry about flight delay or other problems.</string>
+    <string name="fill_all_fields">Please, enter all fields</string>
+    <string name="get_sms">Get SMS with a code</string>
+    <string name="authorize">Authorize</string>
+    <string name="from_">From:</string>
+    <string name="to_">To:</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_title">Do you really want to logout?</string>
+    <string name="profile_saved">Profile was saved</string>
+    <string name="change_origin">Change the origin point</string>
+    <string name="explanation_change_origin">If you need transfer to airport, just press this button to change the origin place.</string>
+    <string name="flight_explanation">If you don\'t choose an airline, we ask you te set full flight number with letter airline index!</string>
+    <string name="show_on_map">Choose on map</string>
+    <string name="favorites_placeholder">Favorite trips list is empty.\nOrder Transfer and add trip to favorites.</string>
+    <string name="fill_flight_number">Please, set the flight number</string>
+    <string name="fill_flight_number_letters">Please, set the flight number with the letters at the beginning</string>
+    <string name="fill_flight_time">Please, set the arrival time</string>
+    <string name="fill_flight_time_correctly">You can order not late, then 24 hours before</string>
+    <string name="fill_origin">Please, set the origin place</string>
+    <string name="fill_destination">Please, set the destination place</string>
+    <string name="trips_need_authorization">To see trips you need to authorize</string>
+    <string name="at">at</string>
+    <string name="no_current_order">You have no future orders</string>
+    <string name="no_completed_orders">You haven\'t made trips before</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Deleted from favorites</string>
+    <string name="order_cancelled">Order was cancelled</string>
+    <string name="need_auth">Need authorization</string>
+    <string name="book_back_transfer">Reserve\nback transfer!</string>
+    <string name="flight">Flight:</string>
+    <string name="flight_hint">Set flight number, for example SU 1450</string>
+    <string name="choose_date_time">Choose transfer date and time</string>
+    <string name="local_time">local time</string>
+    <string name="add_chairs">Add child\'s seats</string>
+    <string name="destination_hint">Where to take you?</string>
+    <string name="choose_airport">Choose airport</string>
+    <string name="choose_place">Start to type address or hotel</string>
+    <string name="origin_hint">Where will you be taken of?</string>
+    <string name="search_hint">Start to type airport name</string>
+    <string name="auth_creation">If you don\'t currently have an account,\nit would be created automatically</string>
+    <string name="closest_airports">Nearest airports</string>
+    <string name="no">No</string>
+    <string name="address_not_found">Address not found</string>
+    <string name="try_choose_another_point">Try to choose another point</string>
+    <string name="order_cancel">Order cancellation</string>
+    <string name="cancel_confirm">Do you really want to cancel the order?</string>
+    <string name="auth_error">Authorization error</string>
+    <string name="fill_email">Please, enter your email</string>
+    <string name="please_authorize">Please, authorize</string>
+    <string name="passengers5">passengers</string>
+    <string name="passengers2">passengers</string>
+    <string name="passengers1">passenger</string>
+    <string name="luggage5">luggage places</string>
+    <string name="luggage2">luggage places</string>
+    <string name="luggage1">luggage place</string>
+    <string name="choose_tariff">Choose tariff</string>
+    <string name="error">Error</string>
+    <string name="close">Close</string>
+    <string name="antalya_explanation">Very soon your transfer from / to more than 200 airports in 50 countries around the world</string>
+    <string name="not_valid_card">Not valid card</string>
+    <string name="saved">Saved</string>
+    <string name="card_delete_confirm">Do you really want to delete this card?</string>
+    <string name="should_add_card">Please add credit card</string>
+    <string name="payment_success">Payment success</string>
+    <string name="should_add_last_name">Please fill your last name</string>
+    <string name="sent_success">Your message was received and will be considered soon</string>
+    <string name="your_transfer">Your Transfer:</string>
+    <string name="not_valid_date">Not valid date</string>
+    <string name="not_valid_cvv">Please enter cvv/cvc</string>
+    <string name="credit_card">Credit card</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="please_fill_card_number">Please fill all card number digits</string>
+    <string name="continue_">Continue</string>
+    <string name="available_soon">Transfer in this region will be available soon</string>
+    <string name="no_google_pay_message">Google Pay is not available. Try to sign in your Google account or download Google Pay app.</string>
+    <string name="promocode">Promo</string>
+    <string name="promo_sale">Promo sale</string>
 </resources>

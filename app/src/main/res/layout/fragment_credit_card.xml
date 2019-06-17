@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addButton"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/horizontal_padding"
+            android:paddingRight="@dimen/horizontal_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:text="@string/add_card_to_pay"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/card_visa"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/card_mc"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/card_mir"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_card_holder"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/cardHolderEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/card_holder_hint"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/frame_profile"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_card_number"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.vicmikhailau.maskededittext.MaskedEditText
+                android:id="@+id/cardNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mask="@string/card_mask"
+                android:hint="@string/card_hint"
+                android:inputType="phone"
+                android:background="@drawable/frame_profile"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/credit_card_valid_to"
+                android:layout_marginBottom="13dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/cardMonthEditText"
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    app:mask="@string/date_mask"
+                    android:inputType="number"
+                    android:hint="@string/month_hint"
+                    android:background="@drawable/frame_profile"/>
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/cardYearEditText"
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    app:mask="@string/date_mask"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:hint="@string/year_hint"
+                    android:background="@drawable/frame_profile"
+                    android:layout_marginLeft="22dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cvc"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"/>
+
+            <com.vicmikhailau.maskededittext.MaskedEditText
+                android:id="@+id/cvcEditText"
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                app:mask="@string/cvc_mask"
+                android:inputType="numberPassword"
+                android:hint="@string/cvc_hint"
+                android:background="@drawable/frame_profile"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"
+                android:layout_marginTop="38dp"/>
+
+            <TextView
+                android:id="@+id/paymentInfoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/safe_payment_info"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/info"
+                android:paddingBottom="14dp"
+                android:paddingTop="14dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_height"
+        android:background="@drawable/shadow"
+        android:layout_above="@+id/addButton"/>
+
+    <include
+        android:id="@+id/addButton"
+        layout="@layout/view_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

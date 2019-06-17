@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveButton"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_padding"
+                android:text="@string/choose_payment_method"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:paddingLeft="@dimen/horizontal_padding"
+                android:paddingRight="@dimen/horizontal_padding"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                android:layout_marginRight="@dimen/horizontal_padding"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cardsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="18dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/addCardButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@string/add_new_credit_card"
+                android:drawableRight="@drawable/plus_card"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="@dimen/horizontal_padding"
+                android:paddingRight="@dimen/horizontal_padding"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_color"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                android:layout_marginRight="@dimen/horizontal_padding"/>
+
+            <TextView
+                android:id="@+id/safePaymentsInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@string/safe_payment_info"
+                android:drawableRight="@drawable/info"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="@dimen/horizontal_padding"
+                android:paddingRight="@dimen/horizontal_padding"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/saveButtonShadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_height"
+        android:background="@drawable/shadow"
+        android:layout_above="@+id/saveButton"/>
+
+    <include
+        android:id="@+id/saveButton"
+        layout="@layout/view_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/info_bg"
+        android:minWidth="280dp"
+        android:layout_alignBottom="@+id/buttonsLayout"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:textAllCaps="true"
+            android:text="@string/order_accepted"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/explanationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:textSize="12sp"
+            android:text="@string/confirm_driver_explanation"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/manLayout">
+
+        <TextView
+            android:id="@+id/backTransferButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/book_back_transfer"
+            android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/closeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="@string/close"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/manLayout"
+        android:layout_width="100dp"
+        android:layout_height="145dp"
+        android:layout_alignRight="@+id/info"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="-1dp">
+
+        <ImageView
+            android:id="@+id/man"
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:src="@drawable/pic_empty" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            tools:text="Transfer!!!"
+            android:maxLines="1"/>
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/main_List_left_margin"
+    android:layout_marginRight="@dimen/main_list_right_margin">
+
+    <ImageView
+        android:id="@+id/middleCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/middle_circle"
+        app:layout_constraintTop_toTopOf="@+id/deliveryTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/deliveryTitle"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <airport.transfer.sale.DividerView
+        android:id="@+id/preLastLine"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layerType="software"
+        app:dashGap="4dp"
+        app:dashLength="6dp"
+        app:dashThickness="1dp"
+        app:orientation="vertical"
+        app:color="@color/main_lines_color"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/middleCircle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/middleCircle"
+        app:layout_constraintRight_toRightOf="@+id/middleCircle"/>
+
+    <View
+        android:id="@+id/middleLine"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/main_lines_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middleCircle"
+        app:layout_constraintLeft_toLeftOf="@id/middleCircle"
+        app:layout_constraintRight_toRightOf="@id/middleCircle"
+        android:visibility="gone"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/main_lines_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/middleCircle"
+        app:layout_constraintLeft_toLeftOf="@id/middleCircle"
+        app:layout_constraintRight_toRightOf="@id/middleCircle"/>
+
+    <TextView
+        android:id="@+id/deliveryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Анталья"
+        android:textSize="14sp"
+        android:layout_marginLeft="@dimen/main_list_horizontal_padding"
+        android:layout_marginRight="@dimen/main_list_horizontal_padding"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/middleCircle"
+        android:layout_marginStart="10dp" />
+
+    <ImageView
+        android:id="@+id/rightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cross"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/deliveryTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/deliverySubtitle"/>
+
+    <TextView
+        android:id="@+id/deliverySubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Терминал 1 vip"
+        android:layout_below="@id/arrivalTitle"
+        android:layout_marginRight="@dimen/main_list_horizontal_padding"
+        app:layout_constraintTop_toBottomOf="@+id/deliveryTitle"
+        app:layout_constraintLeft_toLeftOf="@+id/deliveryTitle"
+        android:textSize="10sp"/>
+
+    <View
+        android:id="@+id/arrivalDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintLeft_toLeftOf="@+id/deliverySubtitle"
+        app:layout_constraintTop_toBottomOf="@+id/deliverySubtitle"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginEnd="6dp" />
+
+    <EditText
+        android:id="@+id/flightCommentText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/deliveryTitle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrivalDivider"
+        android:layout_marginLeft="15dp"
+        android:drawableRight="@drawable/edit"
+        android:drawablePadding="10dp"
+        android:background="@android:color/white"
+        android:hint="@string/add_comment"
+        android:textSize="12sp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/edit_text_color"/>
+
+    <View
+        android:id="@+id/arrivalCommentDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintLeft_toLeftOf="@+id/flightCommentText"
+        app:layout_constraintTop_toBottomOf="@+id/flightCommentText"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="6dp"
+        android:layout_marginEnd="6dp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        app:layout_constraintTop_toBottomOf="@id/arrivalCommentDivider"
+        app:layout_constraintRight_toRightOf="parent"/>
+</android.support.constraint.ConstraintLayout>

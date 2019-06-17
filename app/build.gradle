@@ -1,34 +1,143 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+def AAVersion = '4.3.1'
+def MoxyVersion = '1.4.5'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "airport.transfer.sale"
         minSdkVersion 18
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 26
+        versionCode 10
+        versionName "1.0.10"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        def formattedDate = new Date().format('dd-MM-yyyy')
+        setProperty("archivesBaseName", 'transfer_' + formattedDate)
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            /*applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    project.ext { appName = 'transfer_' }
+                    def formattedDate = new Date().format('dd-MM-yyyy')
+                    def newName = output.outputFile.name
+                    newName = newName.replace("app-release", "$project.ext.appName" + formattedDate)
+                    outputFileName = new File(output.outputFile.parent, newName)
+                }
+            }*/
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/rxjava.properties'
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    configurations {
+        cleanedAnnotations
+
+        compile.exclude group: 'org.jetbrains' , module:'annotations'
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'CloudPayments_AndroidSDK', ext: 'aar')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+        transitive = true;
+    }
+
+    // Support library
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:design:$support_version"
+    compile "com.android.support:support-v4:$support_version"
+
+    compile "com.google.android.gms:play-services-wallet:$services_version"
+
+
+    // Google Map
+    compile "com.google.android.gms:play-services-maps:$services_version"
+    compile "com.google.android.gms:play-services-location:$services_version"
+    // MVP
+    compile("com.arello-mobile:moxy:$MoxyVersion") {
+        exclude group: 'com.google.android'
+    }
+    compile("com.arello-mobile:moxy-app-compat:$MoxyVersion") {
+        exclude group: 'com.google.android'
+    }
+    kapt "com.arello-mobile:moxy-compiler:$MoxyVersion"
+    // Android Annotations
+    kapt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    // REST
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.0'
+    // RX
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:2.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'io.reactivex:rxkotlin:0.60.0'
+    //Widgets
+    compile 'com.vicmikhailau:MaskedEditText:1.1.2'
+    compile 'com.github.ornolfr:rating-view:0.1.2@aar'
+    compile 'com.tuyenmonkey:mkloader:1.2.0'
+
+    compile 'ru.aviasales:aviasalesSdk:2.1.7-sdk'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //Events
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //Push
+    compile "com.google.firebase:firebase-messaging:$services_version"
 }
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url 'http://android.aviasales.ru/repositories/' }
+    google()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+kapt {
+    generateStubs = true
+    arguments {
+        arg("androidManifestFile", variant.outputs[0]?.processResources?.manifestFile)
+    }
+}
+
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
+
+//password & alias & password is tran$fer54fd5f4d5Key
+//key.jks in app folder

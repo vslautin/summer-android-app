@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "416268702144",
+    "firebase_url": "https://transfer-1498580432108.firebaseio.com",
+    "project_id": "transfer-1498580432108",
+    "storage_bucket": "transfer-1498580432108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416268702144:android:e8092c963b295901",
+        "android_client_info": {
+          "package_name": "airport.transfer.sale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416268702144-lc6vhk6p2lkhbcfdarmej328lpifth6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxWXsBfKDC78BAw3NW2ApyqCKzpexNe_s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416268702144:android:977c9dd08ccb064c",
+        "android_client_info": {
+          "package_name": "moleculus.com.transfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416268702144-lc6vhk6p2lkhbcfdarmej328lpifth6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxWXsBfKDC78BAw3NW2ApyqCKzpexNe_s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416268702144:android:91b530439487abaf",
+        "android_client_info": {
+          "package_name": "moleculus.com.transferdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416268702144-lc6vhk6p2lkhbcfdarmej328lpifth6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxWXsBfKDC78BAw3NW2ApyqCKzpexNe_s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

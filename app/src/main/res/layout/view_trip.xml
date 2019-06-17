@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="18dp"
+    android:id="@+id/nextTripView">
+
+    <TextView
+        android:id="@+id/tripDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="@dimen/horizontal_padding"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/arrivalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginLeft="@dimen/horizontal_padding"
+        android:layout_below="@id/tripDate"
+        android:layout_toLeftOf="@+id/tripPrice"/>
+
+    <TextView
+        android:id="@+id/deliveryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginLeft="@dimen/horizontal_padding"
+        android:layout_below="@id/arrivalTitle"
+        android:layout_toLeftOf="@+id/tripPrice"
+        android:layout_marginBottom="20dp"/>
+
+    <airport.transfer.sale.RobotoTextView
+        android:id="@+id/tripPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginRight="@dimen/horizontal_padding"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/deliveryTitle"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/serviceClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@id/tripDate"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="@dimen/horizontal_padding"/>
+
+    <FrameLayout
+        android:id="@+id/detailTripView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deliveryTitle"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_padding"
+            android:layout_marginRight="@dimen/horizontal_padding"
+            android:background="@color/address_item_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/green_triangle"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"/>
+
+            <LinearLayout
+                android:id="@+id/orderParamsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trip_details"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/detailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+
+                <LinearLayout
+                    android:id="@+id/orderNumberLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/your_order_number"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/orderNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="end"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@drawable/detail_order_bottom_shadow"
+                android:layout_below="@id/orderParamsLayout"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/order_detail_upper_shadow"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deliveryTitle"
+        android:background="@color/colorPrimary"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="11dp"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/leftButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat"
+            android:textColor="@android:color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/divider"
+            android:layout_centerVertical="true"
+            android:padding="11dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/rightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/divider"
+            android:layout_centerVertical="true"
+            android:padding="11dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/order_detail_upper_shadow"/>
+    </RelativeLayout>
+</RelativeLayout>

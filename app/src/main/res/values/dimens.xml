@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="toolbar_height">65dp</dimen>
+    <dimen name="horizontal_padding">24dp</dimen>
+    <dimen name="vertical_padding">22dp</dimen>
+    <dimen name="main_list_horizontal_padding">20dp</dimen>
+    <dimen name="main_List_left_margin">24dp</dimen>
+    <dimen name="main_list_right_margin">14dp</dimen>
+
+    <dimen name="bottom_button_height">50dp</dimen>
+    <dimen name="shadow_height">4dp</dimen>
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/titlesLayout">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pin"
+                android:layout_gravity="center"
+                android:paddingBottom="59dp"/>
+
+            <View
+                android:id="@+id/toolbarShadow"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/shadow_toolbar"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/titlesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_above="@+id/chooseButton"
+            android:background="#f7f7f7">
+
+            <TextView
+                android:id="@+id/addressTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                android:layout_marginRight="@dimen/horizontal_padding"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/addressSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="11sp"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                android:layout_marginRight="@dimen/horizontal_padding"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/chooseButton"
+            layout="@layout/view_bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:id="@+id/locationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location"
+            android:layout_alignParentRight="true"
+            android:padding="22dp"/>
+
+        <ImageView
+            android:id="@+id/minusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minus_zoom"
+            android:paddingBottom="28dp"
+            android:layout_above="@+id/titlesLayout"
+            android:layout_alignParentRight="true"
+            android:paddingRight="22dp"
+            android:paddingTop="6dp"
+            android:paddingLeft="20dp"/>
+
+        <ImageView
+            android:id="@+id/plusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus_zoom"
+            android:layout_above="@+id/minusButton"
+            android:paddingRight="22dp"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="6dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

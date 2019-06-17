@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/mainMenu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/order"
+            android:title="@string/order_transfer"
+            android:icon="@drawable/drawer_plane" />
+        <item
+            android:id="@+id/params"
+            android:title="@string/params"
+            android:icon="@drawable/drawer_gear"/>
+        <item
+            android:id="@+id/payment"
+            android:title="@string/payment_methods"
+            android:icon="@drawable/drawer_cards"/>
+        <item
+            android:id="@+id/feedback"
+            android:title="@string/feedback"
+            android:icon="@drawable/drawer_talk"/>
+    </group>
+
+    <group android:id="@+id/bottomMenu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/rules"
+            android:title="@string/user_agreement"
+            android:icon="@drawable/dummy"/>
+        <item
+            android:id="@+id/logout"
+            android:title="@string/logout"
+            android:icon="@drawable/dummy"/>
+    </group>
+</menu>

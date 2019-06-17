@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_button_height"
+        android:background="@color/colorPrimary">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="23dp"
+            android:layout_centerInParent="true"
+            android:background="@color/white75"/>
+
+        <airport.transfer.sale.RobotoBoldTextView
+            android:id="@+id/leftButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat"
+            android:textColor="@android:color/white"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/divider"
+            android:layout_centerVertical="true"
+            android:padding="11dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <airport.transfer.sale.RobotoBoldTextView
+            android:id="@+id/rightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/delete"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/divider"
+            android:layout_centerVertical="true"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+</LinearLayout>

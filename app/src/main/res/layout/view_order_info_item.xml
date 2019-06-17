@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:id="@+id/orderInfoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_gravity="center_vertical"
+        tools:text="Способ оплаты"/>
+
+    <airport.transfer.sale.RobotoBoldTextView
+        android:id="@+id/orderInfoValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:gravity="end|center_vertical"
+        android:textSize="12sp"
+        android:drawablePadding="10dp"
+        tools:text="Google Pay (MasterCard .... 4444)"
+        tools:drawableRight="@drawable/ic_google_pay_mark"/>
+</LinearLayout>
