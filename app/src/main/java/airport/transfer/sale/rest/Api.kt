@@ -13,7 +13,7 @@ interface Api {
     companion object {
         const val BASE_URL = "transfer.sale"
         const val BASE_API_URL = "https://$BASE_URL/cl/v1/"
-        const val TEST_BASE_URL = "207.154.195.157"
+        const val TEST_BASE_URL = "185.235.130.31"
         const val TEST_BASE_API_URL = "http://$TEST_BASE_URL/cl/v1/"
 
         const val GOOGLE_PLACES_URL = "https://maps.googleapis.com/maps/api/place/"
