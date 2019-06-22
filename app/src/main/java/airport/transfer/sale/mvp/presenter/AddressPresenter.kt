@@ -1,19 +1,16 @@
 package airport.transfer.sale.mvp.presenter
 
-import android.content.Context
-import com.arellomobile.mvp.InjectViewState
-import airport.transfer.sale.Constants
 import airport.transfer.sale.getErrorString
 import airport.transfer.sale.mvp.view.AddressesView
 import airport.transfer.sale.networkError
 import airport.transfer.sale.rest.models.response.model.Airport
 import airport.transfer.sale.rest.models.response.model.v2.Address
+import android.content.Context
+import com.arellomobile.mvp.InjectViewState
 import retrofit2.adapter.rxjava.HttpException
 import ru.aviasales.core.AviasalesSDK
 import ru.aviasales.core.places.OnNearestPlacesListener
 import ru.aviasales.core.search_airports.`object`.PlaceData
-import ru.aviasales.core.search_airports.interfaces.OnSearchPlacesListener
-import ru.aviasales.core.search_airports.params.SearchByNameParams
 import rx.android.schedulers.AndroidSchedulers
 
 @InjectViewState
@@ -54,47 +51,48 @@ class AddressPresenter : BasePresenter<AddressesView>() {
     }
 
     fun search(name: String, context: Context, isAirport: Boolean) {
-        val params = SearchByNameParams()
-        params.name = name
-        params.locale = "ru"
-        params.context = context
-        AviasalesSDK.getInstance().startPlacesSearch(params, object : OnSearchPlacesListener {
-
-            override fun onSuccess(result: MutableList<PlaceData>?) {
-                if (result != null) {
-                    if (isAirport) {
-                        viewState.onAddressListReceived(result
-                                .filter { it.airportName != null && !isRailway(it.airportName) }
-                                .map { data ->
-                                    val title = data.airportName
-                                    val subtitle = data.cityName + ", " + data.country
-                                    Address(title, subtitle, data.coordinates[0].toFloatOrNull(), data.coordinates[1].toFloatOrNull(), true)
-                                }, false)
-                    } else {
-                        viewState.onAddressListReceived(result.map { data ->
-                            val title = data.airportName ?: data.name
-                            val subtitle = data.cityName + ", " + data.country
-                            Address(title, subtitle, data.coordinates[0].toFloatOrNull(),
-                                    data.coordinates[1].toFloatOrNull(), data.airportName != null)
-                        }, false)
-                    }
-                }
-            }
-
-            override fun onCanceled() {
-            }
-
-            override fun onError(p0: Int, p1: Int, p2: String?) {
-            }
-
-        })
+//        val params = SearchByNameParams()
+//        params.name = name
+//        params.locale = "ru"
+//        params.context = context
+//        AviasalesSDK.getInstance().startPlacesSearch(params, object : OnSearchPlacesListener {
+//
+//            override fun onSuccess(result: MutableList<PlaceData>?) {
+//                if (result != null) {
+//                    if (isAirport) {
+//                        viewState.onAddressListReceived(result
+//                                .filter { it.airportName != null && !isRailway(it.airportName)}
+//                                .map { data ->
+//                                    val title = data.airportName
+//                                    val subtitle = data.cityName + ", " + data.country
+//                                    Address(title, subtitle, data.coordinates[0].toFloatOrNull(), data.coordinates[1].toFloatOrNull(), true)
+//                                }, false)
+//                    } else {
+//                        viewState.onAddressListReceived(result.map { data ->
+//                            val title = data.airportName ?: data.name
+//                            val subtitle = data.cityName + ", " + data.country
+//                            Address(title, subtitle, data.coordinates[0].toFloatOrNull(),
+//                                    data.coordinates[1].toFloatOrNull(), data.airportName != null)
+//                        }, false)
+//                    }
+//                }
+//            }
+//
+//            override fun onCanceled() {
+//            }
+//
+//            override fun onError(p0: Int, p1: Int, p2: String?) {
+//            }
+//
+//        })
     }
 
+    // search request
     fun searchAirport(name: String){
         restService.getAirports(name).observeOn(AndroidSchedulers.mainThread()).subscribe(
                 { response ->
                     viewState.onAddressListReceived(response.results.map { data ->
-                        Address(data.title, data.subtitle, data.lat, data.lng, true, data.isTransfer)
+                        Address(data.id, data.title, data.subtitle, data.lat, data.lng, data.icon, data.icon=="airport", data.isTransfer)
                     }, false)
                 },
                 { error -> if (error is HttpException) {
@@ -149,41 +147,43 @@ class AddressPresenter : BasePresenter<AddressesView>() {
                             .map { data ->
                                 val title = data.airportName
                                 val subtitle = data.cityName + ", " + data.country
-                                Address(title, subtitle, data.coordinates[0].toFloatOrNull(), data.coordinates[1].toFloatOrNull(), true)
+                                Address("", title, subtitle, data.coordinates[0].toFloatOrNull(), data.coordinates[1].toFloatOrNull(),"", true)
                             }, true)
                 }
             }
         })
     }
 
+    //TODO:
     fun getAddressByCoordinates(lat: Double, lon: Double) {
-        restService.geodecode(lat, lon).observeOn(AndroidSchedulers.mainThread()).subscribe(
-                { response ->
-                    if (response.status == Constants.Status.SUCCESS) {
-                        viewState.onAddressListReceived(listOf(Address(response.title, response.subtitle, lat.toFloat(), lon.toFloat())), false)
-                    } else networkError(Exception(response.message!!))
-                },
-                { error -> if (error is HttpException && error.code() == 404) viewState.onCoordinatesAbsent()
-                    else if (error is HttpException) {
-                    val message = error.getErrorString()
-                    if (message != null) viewState.onError(error.code(), message)
-                } else networkError(error) }
-        )
+//        restService.geodecode(lat, lon).observeOn(AndroidSchedulers.mainThread()).subscribe(
+//                { response ->
+//                    if (response.status == Constants.Status.SUCCESS) {
+//                        viewState.onAddressListReceived(listOf(Address(response.title, response.subtitle, lat.toFloat(), lon.toFloat())), false)
+//                    } else networkError(Exception(response.message!!))
+//                },
+//                { error -> if (error is HttpException && error.code() == 404) viewState.onCoordinatesAbsent()
+//                    else if (error is HttpException) {
+//                    val message = error.getErrorString()
+//                    if (message != null) viewState.onError(error.code(), message)
+//                } else networkError(error) }
+//        )
     }
 
+    //TODO:
     fun getCoordinatesByAddress(address: Address){
-        restService.getCoordinates(address).observeOn(AndroidSchedulers.mainThread()).subscribe(
-                { response ->
-                    if (response.status == Constants.Status.SUCCESS) {
-                        address.lat = response.lat
-                        address.lng = response.lng
-                        viewState.onCoordinatesReceived(address)
-                    } else networkError(Exception(response.message!!))
-                },
-                { error -> if (error is HttpException) {
-                    val message = error.getErrorString()
-                    if (message != null) viewState.onError(error.code(), message)
-                } else networkError(error) }
-        )
+//        restService.getCoordinates(address).observeOn(AndroidSchedulers.mainThread()).subscribe(
+//                { response ->
+//                    if (response.status == Constants.Status.SUCCESS) {
+//                        address.lat = response.lat
+//                        address.lng = response.lng
+//                        viewState.onCoordinatesReceived(address)
+//                    } else networkError(Exception(response.message!!))
+//                },
+//                { error -> if (error is HttpException) {
+//                    val message = error.getErrorString()
+//                    if (message != null) viewState.onError(error.code(), message)
+//                } else networkError(error) }
+//        )
     }
 }

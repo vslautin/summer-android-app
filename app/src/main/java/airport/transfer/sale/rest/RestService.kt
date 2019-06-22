@@ -18,11 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import rx.Observable
 import rx.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 import java.io.InputStream
 import java.security.KeyStore
 import java.security.cert.CertificateFactory
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.net.SocketFactory
 import javax.net.ssl.*
 
@@ -165,7 +165,7 @@ class RestService {
 
     fun getAirportPlaces(key: String, query: String, location: String?, lang: String) = placesApi.getAirportPlaces(key, query, location, lang)
 
-    fun autocomplete(query: String, location: String? = null) = api.autocomplete(query, location)
+    fun autocomplete(query: String, location: String? = null) = api.autocomplete(query)
 
     fun geodecode(lat: Double, lng: Double) = api.geodecode(lat.toString() + "," + lng)
 

@@ -1,5 +1,11 @@
 package airport.transfer.sale.ui.fragment.order
 
+import airport.transfer.sale.*
+import airport.transfer.sale.mvp.presenter.AddressPresenter
+import airport.transfer.sale.mvp.view.AddressesView
+import airport.transfer.sale.rest.models.response.model.v2.Address
+import airport.transfer.sale.storage.Preferences
+import airport.transfer.sale.ui.fragment.BaseFragment
 import android.app.Activity
 import android.content.Intent
 import android.location.Location
@@ -15,12 +21,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_map.*
-import airport.transfer.sale.*
-import airport.transfer.sale.mvp.presenter.AddressPresenter
-import airport.transfer.sale.mvp.view.AddressesView
-import airport.transfer.sale.rest.models.response.model.v2.Address
-import airport.transfer.sale.storage.Preferences
-import airport.transfer.sale.ui.fragment.BaseFragment
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 
@@ -94,6 +94,7 @@ open class MapFragment : BaseFragment(), OnMapReadyCallback, GoogleApiClient.Con
         chosenAddress = addresses.firstOrNull()
         addressTitle.text = chosenAddress?.title
         addressSubtitle.text = chosenAddress?.subtitle
+        //TODO: other fields to this VIEW
     }
 
     fun requestLocationUpdates() {

@@ -4,13 +4,12 @@ import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
 
 
-open class Address(var title: String = "",
+open class Address(var id: String = "",
+                    var title: String = "",
                    var subtitle: String = "",
                    var lat: Float? = 200f,
                    var lng: Float? = 200f,
+                   var icon: String? = "",
                    @SerializedName("is_airport") var isAirport: Boolean? = false,
                    @SerializedName("is_transfer") var isTransfer: Boolean = true,
-                   var isForcedAirport: Boolean = false): RealmObject(){
-
-
-}
+                   var isForcedAirport: Boolean = false): RealmObject()

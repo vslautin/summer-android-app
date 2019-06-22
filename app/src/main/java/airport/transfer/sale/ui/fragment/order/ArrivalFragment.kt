@@ -1,5 +1,15 @@
 package airport.transfer.sale.ui.fragment.order
 
+import airport.transfer.sale.*
+import airport.transfer.sale.adapter.AddressAdapter
+import airport.transfer.sale.adapter.ViewHolderWrapper
+import airport.transfer.sale.mvp.presenter.AddressPresenter
+import airport.transfer.sale.mvp.view.AddressesView
+import airport.transfer.sale.rest.models.response.model.v2.Address
+import airport.transfer.sale.storage.Preferences
+import airport.transfer.sale.ui.activity.ArrivalDetailsActivity_
+import airport.transfer.sale.ui.activity.MapActivity_
+import airport.transfer.sale.ui.fragment.BaseFragment
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
@@ -19,16 +29,6 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_address.*
-import airport.transfer.sale.*
-import airport.transfer.sale.adapter.AddressAdapter
-import airport.transfer.sale.adapter.ViewHolderWrapper
-import airport.transfer.sale.mvp.presenter.AddressPresenter
-import airport.transfer.sale.mvp.view.AddressesView
-import airport.transfer.sale.rest.models.response.model.v2.Address
-import airport.transfer.sale.storage.Preferences
-import airport.transfer.sale.ui.activity.ArrivalDetailsActivity_
-import airport.transfer.sale.ui.activity.MapActivity_
-import airport.transfer.sale.ui.fragment.BaseFragment
 import org.androidannotations.annotations.EFragment
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -100,14 +100,15 @@ open class ArrivalFragment : BaseFragment(), AddressesView, GoogleApiClient.Conn
                     shouldShowClosestAirports = false
                     if (it.isNotEmpty()) {
                         progressBar?.visibility = View.VISIBLE
-                        if (isAirport) {
-                            /*addressPresenter.getAirports(getString(R.string.google_places_key), it.toString(),
-                                    if (useLocation) latLon.first else null, if (useLocation) latLon.second else null, lang)*/
-                            addressPresenter.searchAirport(it.toString())//addressPresenter.search(it.toString(), context, true)
-                        } else {
-                            //addressPresenter.getAddresses(it.toString(), latLon.first, latLon.second, getString(R.string.google_places_key), lang)
-                            addressPresenter.autocomplete(it.toString(), if (!isAirport) activity.intent.getStringExtra(Constants.EXTRA_AIRPORT) else null)
-                        }
+                        addressPresenter.autocomplete(it.toString(), if (!isAirport) activity.intent.getStringExtra(Constants.EXTRA_AIRPORT) else null)
+//                        if (isAirport) {
+//                            /*addressPresenter.getAirports(getString(R.string.google_places_key), it.toString(),
+//                                    if (useLocation) latLon.first else null, if (useLocation) latLon.second else null, lang)*/
+//                            addressPresenter.searchAirport(it.toString())//addressPresenter.search(it.toString(), context, true)
+//                        } else {
+//                            //addressPresenter.getAddresses(it.toString(), latLon.first, latLon.second, getString(R.string.google_places_key), lang)
+//                            addressPresenter.autocomplete(it.toString(), if (!isAirport) activity.intent.getStringExtra(Constants.EXTRA_AIRPORT) else null)
+//                        }
                     } else {
                         addressRecyclerView?.visibility = View.GONE
                         if (shouldShowMap()) showMapButton?.visibility = View.VISIBLE
