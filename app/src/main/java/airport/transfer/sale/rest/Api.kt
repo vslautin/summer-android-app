@@ -208,7 +208,6 @@ interface Api {
     @FormUrlEncoded
     @POST(AUTOCOMPLETE)
     fun autocomplete(@Field("search") search: String,
-                     @Field("location") location: String? = null,
                      @Field(LANGUAGE) language: String = Locale.getDefault().language): Observable<AutocompleteResponse>
 
     @FormUrlEncoded

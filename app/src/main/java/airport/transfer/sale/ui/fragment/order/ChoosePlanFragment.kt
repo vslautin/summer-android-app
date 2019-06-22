@@ -1,11 +1,5 @@
 package airport.transfer.sale.ui.fragment.order
 
-import android.app.Activity
-import android.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
-import com.arellomobile.mvp.presenter.InjectPresenter
-import io.realm.Realm
-import kotlinx.android.synthetic.main.fragment_plans.*
 import airport.transfer.sale.*
 import airport.transfer.sale.adapter.PlansAdapter
 import airport.transfer.sale.adapter.ViewHolderWrapper
@@ -18,10 +12,15 @@ import airport.transfer.sale.ui.activity.PaymentMethodsActivity_
 import airport.transfer.sale.ui.fragment.BaseFragment
 import airport.transfer.sale.ui.view.plan.PromocodeView
 import airport.transfer.sale.ui.view.plan.PromocodeView_
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
+import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
+import com.arellomobile.mvp.presenter.InjectPresenter
+import io.realm.Realm
+import kotlinx.android.synthetic.main.fragment_plans.*
 import kotlinx.android.synthetic.main.view_promocode.*
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
@@ -48,14 +47,14 @@ open class ChoosePlanFragment : BaseFragment(), ServicePlanView, PriceView {
     @AfterViews
     fun ready(){
         realm = Realm.getDefaultInstance()
-        plansPresenter.getPlans(getCurrentOrder(realm), "")
+        plansPresenter.getPlans()
         promoView = PromocodeView_.build(context)
         rootLayout.addView(promoView, 0)
         textWatcher = object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 promoView?.removeCallbacks(mRunnable)
                 mRunnable = Runnable {
-                    plansPresenter.getPlans(getCurrentOrder(realm), s?.toString() ?: "")
+                    plansPresenter.getPlans()
                 }
                 promoView?.postDelayed(mRunnable, 600)
             }

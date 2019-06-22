@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 class Constants {
     companion object {
-        const val isTestServer = true
-        const val needGPay = true
+        const val isTestServer = true// todo: make false for prod
+        const val needGPay = false// todo: make true for prod
 
         const val REGISTRATION = "registration"
         const val REQUEST_REGISTRATION = 1
