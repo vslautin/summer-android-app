@@ -1,17 +1,5 @@
 package airport.transfer.sale.ui.fragment.order
 
-import android.app.Activity
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
-import android.content.Intent
-import android.os.Bundle
-import android.text.TextUtils
-import android.view.View
-import android.widget.Toast
-import com.arellomobile.mvp.presenter.InjectPresenter
-import io.realm.Realm
-import kotlinx.android.synthetic.main.fragment_order_creation.*
-import kotlinx.android.synthetic.main.view_bottom_button.*
 import airport.transfer.sale.*
 import airport.transfer.sale.mvp.model.CarPriceModel
 import airport.transfer.sale.mvp.presenter.OrderPresenter
@@ -27,6 +15,18 @@ import airport.transfer.sale.ui.fragment.BaseFragment
 import airport.transfer.sale.ui.fragment.drawer.TransferFragment
 import airport.transfer.sale.ui.fragment.order.param.PlansFragment
 import airport.transfer.sale.ui.fragment.order.param.PlansFragment_
+import android.app.Activity
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.content.Intent
+import android.os.Bundle
+import android.text.TextUtils
+import android.view.View
+import android.widget.Toast
+import com.arellomobile.mvp.presenter.InjectPresenter
+import io.realm.Realm
+import kotlinx.android.synthetic.main.fragment_order_creation.*
+import kotlinx.android.synthetic.main.view_bottom_button.*
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.EFragment
 import java.text.SimpleDateFormat
@@ -422,17 +422,17 @@ open class OrderCreationFragment : BaseFragment(), OrderView, PriceView {
         plansFragment = PlansFragment_.builder().build()
         plansFragment.setChoosePlanListener(object : PlansFragment.ChoosePlanListener {
             override fun onPlanChosen(model: CarPriceModel) {
-                val plan = plans?.find { it.id == model.id }
+                val plan = plans?.find { it.id == model.id.toString() }
                 val savedOrder = getCurrentOrder(realm)
                 savedOrder.plan = plan
                 saveCurrentOrder(realm, savedOrder)
                 plansFragment.dialog.dismiss()
-                plans?.let { plansFragment.setPlans(it.map { CarPriceModel(it.id, it.title, it.about, it.id == plan?.id) }) }
+                plans?.let { plansFragment.setPlans(it.map { CarPriceModel(it.id.toInt(), it.title, it.about_language, it.id == plan?.id) }) }
                 //checkPrice()
             }
         })
         val savedPlanId = getCurrentOrder(realm).plan?.id
-        plans?.let { plansFragment.setPlans(it.map { CarPriceModel(it.id, it.title, it.about, it.id == savedPlanId) }) }
+        plans?.let { plansFragment.setPlans(it.map { CarPriceModel(it.id.toInt(), it.title, it.about_language, it.id == savedPlanId) }) }
     }
 
     override fun onError(code: Int, message: String) {

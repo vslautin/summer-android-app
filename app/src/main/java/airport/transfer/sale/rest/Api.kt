@@ -88,7 +88,7 @@ interface Api {
                @Query("lat") lat: Float?,
                @Query("lon") lon: Float?,
                @Query(LANGUAGE) language: String = Locale.getDefault().language): Observable<SearchAirportResponse>
-
+    //@Deprecated
     @GET(SEARCH_AIRPORT)
     fun searchAirport(@Query("query") query: String,
                       @Query("lat") lat: Float?,

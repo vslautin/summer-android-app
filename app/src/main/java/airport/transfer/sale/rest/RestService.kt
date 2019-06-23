@@ -7,9 +7,7 @@ import airport.transfer.sale.rest.models.response.CreateOrderResponse
 import airport.transfer.sale.rest.models.response.PriceResponse
 import airport.transfer.sale.rest.models.response.model.v2.Address
 import airport.transfer.sale.rest.models.response.model.v2.Order
-import okhttp3.MediaType
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
 import retrofit2.Retrofit
@@ -123,8 +121,10 @@ class RestService {
     fun getAirlines() = api.getAirlines()
 
     fun createOrder(authToken: String, order: Order, crypto: String?): Observable<CreateOrderResponse> {
-        val orderParams = order.getRequestString(false, authToken)
-        return api.createOrder(RequestBody.create(MediaType.parse("text/plain"), if (crypto == null) orderParams else "$orderParams&cryptogram=$crypto"))
+        val builder = order.getRequestBody(false, authToken)
+        if (crypto != null)
+            builder.add("cryptogram", crypto)
+        return api.createOrder(builder.build())
     }
 
     fun getCurrentOrders(authToken: String) = api.getCurrentOrders(authToken)
@@ -136,16 +136,16 @@ class RestService {
     fun addFavorite(authToken: String, id: Long) = api.addFavorite(id, authToken)
 
     fun editOrder(authToken: String, id: Long, order: Order): Observable<CreateOrderResponse> {
-        return api.editOrder(id, RequestBody.create(MediaType.parse("text/plain"), order.getRequestString(true, authToken)))
+        return api.editOrder(id,  order.getRequestBody(true, authToken).build())
     }
 
     fun cancelOrder(authToken: String, id: Long) = api.cancelOrder(id, authToken)
 
     fun getPrice(order: Order): Observable<PriceResponse> {
-        return api.getPrice(RequestBody.create(MediaType.parse("text/plain"), order.getRequestString(false, null)))
+        return api.getPrice( order.getRequestBody(false, null).build())
     }
 
-    fun getPlans(order: Order, coupon: String) = api.getPlans(RequestBody.create(MediaType.parse("text/plain"), order.getPlansRequestString(coupon)))
+//    fun getPlans(order: Order, coupon: String) = api.getPlans(RequestBody.create(MediaType.parse("text/plain"), order.getPlansRequestString(coupon)))
 
     fun sendMessage(message: String, token: String) = api.sendMessage(token, message)
 
